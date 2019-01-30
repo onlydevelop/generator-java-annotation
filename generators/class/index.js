@@ -50,13 +50,15 @@ module.exports = class extends Generator {
       }
     );
 
-    this.fs.copyTpl(
-      this.templatePath('classSpec.groovy'),
-      this.destinationPath(this.answers.projectName + '/src/test/groovy/' + this.packageDir + this.answers.className + 'Spec.groovy'),
-      {
-        packageName: this.answers.packageName,
-        className: this.answers.className
-      }
-    );
+    if(this.answers.addTest) {
+      this.fs.copyTpl(
+        this.templatePath('classSpec.groovy'),
+        this.destinationPath(this.answers.projectName + '/src/test/groovy/' + this.packageDir + this.answers.className + 'Spec.groovy'),
+        {
+          packageName: this.answers.packageName,
+          className: this.answers.className
+        }
+      );
+    }
   }
 }
