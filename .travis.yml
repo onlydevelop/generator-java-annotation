@@ -1,7 +1,3 @@
 language: node_js
 node_js:
-  - '8.11.22'
-before_install:
-  - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-java-annotation' ]; then cd .. && eval "mv $currentfolder generator-java-annotation" && cd generator-java-annotation; fi
-
+  - '8'
