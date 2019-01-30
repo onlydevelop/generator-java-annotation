@@ -13,7 +13,9 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
+    "java",
+    "gradle",
+    "annotation",
     "yeoman-generator"
   ],
   "devDependencies": {
