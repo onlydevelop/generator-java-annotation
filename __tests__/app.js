@@ -7,10 +7,12 @@ describe('generator-java-annotation:app', () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, '../generators/app'))
-      .withPrompts({ someAnswer: true });
+      .withPrompts({ projectName: 'projectName' });
   });
 
   it('creates files', () => {
-    assert.file(['dummyfile.txt']);
+    assert.file(['projectName/build.gradle']);
+    assert.file(['projectName/Makefile']);
+    assert.file(['projectName/src/main/java/Main.java']);
   });
 });
