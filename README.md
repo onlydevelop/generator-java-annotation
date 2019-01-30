@@ -146,6 +146,8 @@ BUILD SUCCESSFUL in 0s
 Hello, world!
 ```
 
+You can run the same `make run` command for the annotation test.
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
