@@ -59,6 +59,52 @@ $ yo java-annotation:class
    create example/src/test/groovy/com/example/CalculatorSpec.groovy
 ```
 
+Creating annotation interface:
+
+```bash
+$ yo java-annotation:annotation
+
+     _-----_     ╭──────────────────────────╮
+    |       |    │   Welcome to the swell   │
+    |--(o)--|    │ generator-java-annotatio │
+   `---------´   │       n generator!       │
+    ( _´U`_ )    ╰──────────────────────────╯
+    /___A___\   /
+     |  ~  |
+   __'.___.'__
+ ´   `  |° ´ Y `
+
+? Package Name com.example
+? Project name example
+? Class name TestAnnotation
+? Retention Policy? RUNTIME
+? Element Type? METHOD
+   create example/src/main/java/com/example/TestAnnotation.java
+```
+
+Creating annotation runner:
+
+```bash
+$ yo java-annotation:annotation-runner
+
+     _-----_     ╭──────────────────────────╮
+    |       |    │   Welcome to the swell   │
+    |--(o)--|    │ generator-java-annotatio │
+   `---------´   │       n generator!       │
+    ( _´U`_ )    ╰──────────────────────────╯
+    /___A___\   /
+     |  ~  |
+   __'.___.'__
+ ´   `  |° ´ Y `
+
+? Package Name com.example
+? Project name example
+? Class name AnnotationRunner
+? Gradle Version 5.1
+   create example/src/main/java/com/example/AnnotationRunner.java
+   create example/build.gradle
+   create example/Makefile
+```
 ## Testing
 
 Create the gradle Wrapper:
