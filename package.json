@@ -1,6 +1,6 @@
 {
   "name": "generator-java-annotation",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Creates a generator for Java project with annotation",
   "homepage": "https://github.com/onlydevelop/generator-java-annotation",
   "author": {
