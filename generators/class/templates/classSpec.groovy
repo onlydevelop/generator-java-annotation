@@ -7,7 +7,7 @@ class <%= className %>Spec extends Specification {
     @Unroll
     def "returns #c to add #a with #b"() {
         setup:
-        def cut = new <%= className %>S()
+        def cut = new <%= className %>()
 
         expect:
         cut.add(a,b) == c

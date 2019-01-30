@@ -34,9 +34,10 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    this.packageDir = this.answers.packageName.replace('.', '/') + '/';
     this.fs.copyTpl(
       this.templatePath('class.java'),
-      this.destinationPath('test/src/main/java/' + this.answers.className + '.java'),
+      this.destinationPath('test/src/main/java/' + this.packageDir + this.answers.className + '.java'),
       {
         packageName: this.answers.packageName,
         className: this.answers.className
@@ -45,7 +46,7 @@ module.exports = class extends Generator {
 
     this.fs.copyTpl(
       this.templatePath('classSpec.groovy'),
-      this.destinationPath('test/src/test/groovy/' + this.answers.className + 'Spec.groovy'),
+      this.destinationPath('test/src/test/groovy/' + this.packageDir + this.answers.className + 'Spec.groovy'),
       {
         packageName: this.answers.packageName,
         className: this.answers.className
