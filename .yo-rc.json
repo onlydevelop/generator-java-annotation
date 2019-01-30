@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Dipanjan Bhowmik",
+      "authorEmail": "onlydevelop@gmail.com",
+      "authorUrl": "https://onlydevelop.github.io/"
+    }
+  }
+}
