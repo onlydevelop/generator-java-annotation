@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+    id 'groovy'
+}
+
+version = '0.1.0'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'org.codehaus.groovy:groovy-all:2.5.5'
+    testCompile 'org.spockframework:spock-core:1.2-groovy-2.5'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': '<%= packageName %>.Main'
+    }
+}

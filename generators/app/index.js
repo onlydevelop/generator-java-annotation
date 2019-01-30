@@ -45,4 +45,32 @@ module.exports = class extends Generator {
       }
     ]);
   }
+
+  writing() {
+    this.fs.copyTpl(
+      this.templatePath('build.gradle'),
+      this.destinationPath('test/build.gradle'),
+      {
+        projectName: this.answers.projectName,
+        gradleVersion: this.answers.gradleVersion,
+        packageName: this.answers.packageName
+      }
+    );
+
+    this.log(this.destinationRoot());
+
+    this.fs.copyTpl(
+      this.templatePath('Makefile'),
+      this.destinationPath('test/Makefile'),
+      {
+        projectName: this.answers.projectName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('Main.java'),
+      this.destinationPath('test/src/main/java/Main.java'),
+      { packageName: this.answers.packageName }
+    );
+  }
 };
