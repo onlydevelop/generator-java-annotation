@@ -29,6 +29,12 @@ module.exports = class extends Generator {
         name    : 'className',
         message : 'Class name',
         default : 'RunTest'
+      },
+      {
+        type    : 'input',
+        name    : 'gradleVersion',
+        message : 'Gradle Version',
+        default : '5.1'
       }
     ]);
   }
@@ -40,7 +46,25 @@ module.exports = class extends Generator {
       this.destinationPath(this.answers.projectName + '/src/main/java/' + this.packageDir + this.answers.className + '.java'),
       {
         packageName: this.answers.packageName,
+        className: this.answers.className
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('build.gradle'),
+      this.destinationPath(this.answers.projectName + '/build.gradle'),
+      {
         className: this.answers.className,
+        gradleVersion: this.answers.gradleVersion,
+        packageName: this.answers.packageName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('Makefile'),
+      this.destinationPath(this.answers.projectName + '/Makefile'),
+      {
+        projectName: this.answers.projectName
       }
     );
   }
