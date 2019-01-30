@@ -1,4 +1,4 @@
-# generator-java-annotation [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-java-annotation [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] 
 > Creates a generator for Java project with annotation
 
 ## Installation
