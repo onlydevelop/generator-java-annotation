@@ -51,9 +51,9 @@ module.exports = class extends Generator {
     if(this.options.example) {
       // TestExample class
       this.answers.className = "TestExample"
-      this.template_class = "example-testexample.java"
+      this.templateClass = "example-testexample.java"
       this.fs.copyTpl(
-        this.templatePath(this.template_class),
+        this.templatePath(this.templateClass),
         this.destinationPath(this.answers.projectName + '/src/main/java/' + this.packageDir + this.answers.className + '.java'),
         {
           packageName: this.answers.packageName,
@@ -63,9 +63,9 @@ module.exports = class extends Generator {
 
       // RunTest class
       this.answers.className = "RunTest"
-      this.template_class = "example-runtest.java"
+      this.templateClass = "example-runtest.java"
       this.fs.copyTpl(
-        this.templatePath(this.template_class),
+        this.templatePath(this.templateClass),
         this.destinationPath(this.answers.projectName + '/src/main/java/' + this.packageDir + this.answers.className + '.java'),
         {
           packageName: this.answers.packageName,
@@ -74,9 +74,9 @@ module.exports = class extends Generator {
       );
 
     } else {
-      this.template_class = "class-runtest.java"
+      this.templateClass = "class-runtest.java"
       this.fs.copyTpl(
-        this.templatePath(this.template_class),
+        this.templatePath(this.templateClass),
         this.destinationPath(this.answers.projectName + '/src/main/java/' + this.packageDir + this.answers.className + '.java'),
         {
           packageName: this.answers.packageName,
