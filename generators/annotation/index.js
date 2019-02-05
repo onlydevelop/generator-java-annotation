@@ -5,6 +5,12 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 
 module.exports = class extends Generator {
+
+  constructor(args, opts) {
+    super(args, opts)
+    this.option('example')
+  }
+
   async prompting() {
     // Have Yeoman greet the user.
     this.log(
@@ -50,15 +56,49 @@ module.exports = class extends Generator {
 
   writing() {
     this.packageDir = this.answers.packageName.replace('.', '/') + '/';
-    this.fs.copyTpl(
-      this.templatePath('class.java'),
-      this.destinationPath(this.answers.projectName + '/src/main/java/' + this.packageDir + this.answers.className + '.java'),
-      {
-        packageName: this.answers.packageName,
-        retentionPolicy: this.answers.retentionPolicy,
-        elementType: this.answers.elementType,
-        className: this.answers.className,
-      }
-    );
+    
+    if(this.options.example) {
+      // Test annotation class
+      this.answers.className = "Test"
+      this.template_class = "example-test.java"
+      this.fs.copyTpl(
+        this.templatePath(this.template_class),
+        this.destinationPath(this.answers.projectName + '/src/main/java/' + this.packageDir + this.answers.className + '.java'),
+        {
+          packageName: this.answers.packageName,
+          retentionPolicy: this.answers.retentionPolicy,
+          elementType: this.answers.elementType,
+          className: this.answers.className,
+        }
+      );
+
+      // TestInfo annotation class
+      this.answers.className = "TesterInfo"
+      this.template_class = "example-testinfo.java"
+      this.fs.copyTpl(
+        this.templatePath(this.template_class),
+        this.destinationPath(this.answers.projectName + '/src/main/java/' + this.packageDir + this.answers.className + '.java'),
+        {
+          packageName: this.answers.packageName,
+          retentionPolicy: this.answers.retentionPolicy,
+          elementType: this.answers.elementType,
+          className: this.answers.className,
+        }
+      );
+
+    } else {
+      this.template_class = "class.java"
+      this.fs.copyTpl(
+        this.templatePath(this.template_class),
+        this.destinationPath(this.answers.projectName + '/src/main/java/' + this.packageDir + this.answers.className + '.java'),
+        {
+          packageName: this.answers.packageName,
+          retentionPolicy: this.answers.retentionPolicy,
+          elementType: this.answers.elementType,
+          className: this.answers.className,
+        }
+      );
+    }
   }
 }
+
